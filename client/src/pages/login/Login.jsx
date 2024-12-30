@@ -6,9 +6,31 @@ const Login = () => {
           Login
           <span className="text-blue-500"> chat-app</span>
         </h1>
+        <form>
+          <div>
+            <label className="label p-2">
+              <span className="text-base label-text">Username</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Enter Username"
+              className="input input-bordered w-full max-w-xs"
+            />
+          </div>
+          <div>
+            <label className="label p-2">
+              <span className="text-base label-text">Password</span>
+            </label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              className="input input-bordered w-full max-w-xs"
+            />
+          </div>
+        </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
