@@ -7,7 +7,7 @@ export const sendMessage = async (req, res) => {
     const { id: receiverId } = req.params;
     const senderId = req.user._id;
 
-    const conversation = await Conversation.findOne({
+    let conversation = await Conversation.findOne({
       participants: {
         $all: [senderId, receiverId],
       },
@@ -28,6 +28,13 @@ export const sendMessage = async (req, res) => {
     if (newMessage) {
       conversation.messages.push(newMessage._id);
     }
+
+    //SOCKETIO for realtime communication
+
+    // await conversation.save();
+    // await newMessage.save();
+
+    await Promise.all([conversation.save(), newMessage.save()]); //saves at the exact same time
 
     res.status(201).json(newMessage);
   } catch (error) {
