@@ -1,2 +1,2 @@
 # chat-app
-a chat-app hosted on the local network for my friends to chat
+a chat-app hosted on online for my friends to chat
